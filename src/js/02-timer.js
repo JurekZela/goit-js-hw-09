@@ -3,6 +3,8 @@ import flatpickr from "flatpickr";
 // Додатковий імпорт стилів
 import "flatpickr/dist/flatpickr.min.css";
 
+import { Notify } from 'notiflix/build/notiflix-notify-aio';
+
 const options = {
     enableTime: true,
     time_24hr: true,
@@ -16,7 +18,7 @@ const options = {
             refBtnStart.disabled = false;
         }else{
             refBtnStart.disabled = true;
-            alert("Please choose a date in the future");
+            Notify.warning("Please choose a date in the future");
         };
     },
 };
@@ -39,6 +41,10 @@ const options = {
     refBtnStart.disabled = true;
     refInputDate.disabled = true;
 
+    if (timerElements.seconds.textContent === 0) {
+        return;
+    };
+    
     setInterval(function startCountdown ()  {
         const currentDate = new Date();
 
