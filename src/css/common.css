@@ -16,3 +16,38 @@ img {
   display: block;
   max-width: 100%;
 }
+
+.timer{
+  display: flex;
+}
+
+.value{
+ display: flex;
+ justify-content: center;
+ color: black;
+ font-size: 30;
+}
+
+.label{
+  color: black;
+  font-size: 20;
+}
+
+button{
+  cursor: pointer;
+  margin: 0px auto;
+  padding: 25px, 25px;
+  border-radius: 4px;
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 1.33;
+  letter-spacing: 0.04em;
+}
+
+.field:not(:last-child) {
+  margin-right: 10px;
+}
+
+ #datetime-picker{
+  font-size: 20;
+}
