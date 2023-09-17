@@ -18,7 +18,7 @@ const options = {
             refBtnStart.disabled = false;
         }else{
             refBtnStart.disabled = true;
-            Notify.warning("Please choose a date in the future");
+            Notify.failure("Please choose a date in the future");
         };
     },
 };
@@ -56,6 +56,8 @@ const options = {
        timerElements.minutes.textContent = minutes;
        timerElements.seconds.textContent = seconds;
     }, 1000);
+
+    Notify.success('Countdown Started!');
 };
 
 
