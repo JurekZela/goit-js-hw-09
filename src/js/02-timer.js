@@ -24,7 +24,6 @@ const options = {
 };
   flatpickr("#datetime-picker", options);
 
-
   const refBtnStart = document.querySelector('[data-start]');
   const refInputDate = document.getElementById('datetime-picker');
 
@@ -40,12 +39,8 @@ const options = {
   function onStartCountdownClick() {
     refBtnStart.disabled = true;
     refInputDate.disabled = true;
-
-    if (timerElements.seconds.textContent === 0) {
-        return;
-    };
     
-    setInterval(function startCountdown ()  {
+    let setIntervalTime = setInterval(function startCountdown ()  {
         const currentDate = new Date();
 
        const leftTime = new Date(refInputDate.value) - currentDate;
@@ -55,6 +50,11 @@ const options = {
        timerElements.hours.textContent = hours;
        timerElements.minutes.textContent = minutes;
        timerElements.seconds.textContent = seconds;
+
+       if (timerElements.seconds.textContent <= 0) {
+        clearInterval(setIntervalTime);
+        return;
+    };
     }, 1000);
 
     Notify.success('Countdown Started!');
